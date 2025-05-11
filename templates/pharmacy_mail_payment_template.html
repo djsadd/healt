@@ -1,0 +1,101 @@
+{% load static %}
+
+<h2>Сәлем {{ values.name }},</h2>
+
+<p>Міне, сіздің сатып алуыңыздың төлем мәліметтері бар түбіртек.</p>
+
+<h2>Дәріхана түбіртегі</h2>
+
+<h3 class="card-title">Төлем түбіртегі</h3>
+
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black">Атауы</th>
+                <th style="border: 1px solid black">Мазмұны</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td style="border: 1px solid black">Пациенттің аты</td>
+                <td style="border: 1px solid black">{{ values.name }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Электрондық пошта</td>
+                <td style="border: 1px solid black">{{ values.email }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Пайдаланушы аты</td>
+                <td style="border: 1px solid black">{{ values.username }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Телефон нөмірі</td>
+                <td style="border: 1px solid black">{{ values.phone_number }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Транзакция ID</td>
+                <td style="border: 1px solid black">{{ values.tran_id }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Банк транзакциясының ID</td>
+                <td style="border: 1px solid black">{{ values.bank_transaction_id }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Транзакция күні</td>
+                <td style="border: 1px solid black">{{ values.transaction_date }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Сомасы</td>
+                <td style="border: 1px solid black">{{ values.currency_amount }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Карта түрі</td>
+                <td style="border: 1px solid black">{{ values.card_type }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Карта шығарушы</td>
+                <td style="border: 1px solid black">{{ values.card_issuer }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+
+    <h3 class="card-title">Сатып алынған заттар</h3>
+
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black">Атауы</th>
+                <th style="border: 1px solid black">Мазмұны</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in values.order_cart %}
+            <tr>
+                <td style="border: 1px solid black">Тауар</td>
+                <td style="border: 1px solid black">{{ i }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+<p>Сатып алғаныңыз үшін рахмет.</p>
+
+<p>Кез келген сұрақтар бойынша бізге хабарласыңыз.</p>
+
+<p>Құрметпен,</p>
+<p>Админ</p>

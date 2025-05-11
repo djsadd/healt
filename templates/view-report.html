@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kk">
+  <head>
+    <meta charset="utf-8" />
+    <title>HealthStack</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+
+    <!-- Тұмарша -->
+    <link
+      type="image/x-icon"
+      href="{% static 'HealthStack-System/images/Normal/favicon.png' %}"
+      rel="icon"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/bootstrap.min.css' %}"
+    />
+
+    <!-- Fontawesome CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/fontawesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/all.min.css' %}"
+    />
+
+    <!-- Негізгі CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/style.css' %}"
+    />
+		
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
+
+		<!-- Негізгі қап -->
+		<div class="main-wrapper">
+		
+			<!-- Хедер -->
+			<header class="header">
+                {% if user.is_authenticated and user.is_patient %}
+                    {% include 'patient_navbar.html' %}
+                {% endif %}
+			</header>
+			<!-- /Хедер -->
+			
+			<!-- Навигация -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+                                    {% if user.is_authenticated and user.is_patient %}
+									<li class="breadcrumb-item"><a href="">Есепті қарау</a></li>
+                                    {% endif %}
+									<li class="breadcrumb-item active" aria-current="page">Есеп нәтижесі</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Есеп нәтижесі</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Навигация -->
+			
+			<!-- Бет мазмұны -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+                         <!-- Профиль бүйір мәзір -->
+                        <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+                            <div>{% include 'patient-sidebar.html' %}</div>
+                        </div>
+                        <!-- /Профиль бүйір мәзір -->
+						<div class="col-md-7 col-lg-8 col-xl-9">
+							<div class="invoice-content">
+								<div class="invoice-item">
+									<div class="row">
+                    
+										<div class="col-md-6">
+											<div class="invoice-logo">
+												<img src="{% static 'HealthStack-System/images/Normal/FullLogo_Transparent_NoBuffer.png'%}" alt="логотип">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<p class="invoice-details">
+												{% for report in report %}
+												<strong>Есеп ID:</strong>{{report.report_id}} <br>
+												<strong>Пациент ID:</strong> {{patient.patient_id }} <br>
+												<strong>Күні:</strong> {{report.delivery_date}}
+											</p>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Есеп элементі -->
+								<div class="invoice-item">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="invoice-info">
+												<strong class="customer-text">Дәрігер туралы ақпарат:</strong>
+                        
+												<p class="invoice-details invoice-details-two">
+													<b>Аты: </b>{{report.doctor.name}} <br>
+													<b>Бөлім: </b>{{report.doctor.department_name}}<br>
+													<b>Email: </b>{{report.doctor.email}} <br>
+												</p>
+                        
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="invoice-info invoice-info2">
+												<strong class="customer-text">Пациент туралы ақпарат:</strong>
+												<p class="invoice-details">
+													<b>Аты: </b>{{patient.name}} <br>
+													<b>Мекенжай: </b>{{report.patient.address}}<br>
+													<b>Email: </b>{{report.patient.email}} <br>
+													<b>Телефон нөмірі: </b>{{report.patient.phone_number}}<br>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="invoice-item invoice-table-wrap">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="table-responsive">
+												<table class="table table-bordered text-center">
+													<thead>
+														<tr style="background-color: rgb(84, 147, 199)">
+															<th style="border: 2px dotted;">Үлгі туралы ақпарат</th>
+															<th style="border: 2px dotted;">Үлгі ID</th>
+															<th style="border: 2px dotted;">Жиналған күні/уақыты</th>
+															<th style="border: 2px dotted;">Қабылданған күні/уақыты</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for s in specimen %}
+														<tr>
+															<td style="border: 2px dotted;">{{s.specimen_type}}</td>
+															<td style="border: 2px dotted;">{{s.specimen_id}}</td>
+															<td style="border: 2px dotted;">{{s.collection_date}}</td>
+															<td style="border: 2px dotted;">{{s.receiving_date}}</td>
+														</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+
+                  				<br>
+                  				<div class="invoice-item invoice-table-wrap">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="table-responsive">
+												<table class="invoice-table table table-bordered text-center">
+													<thead>
+														<tr style="background-color: rgb(84, 147, 199);">
+															<th style="border: 2px dotted;">Тест атауы</th>
+                              								<th style="border: 2px dotted;">Нәтиже</th>
+															<th style="border: 2px dotted;">Өлшем бірлігі</th>
+                             								<th style="border: 2px dotted;">Сілтеме мәні</th>
+														</tr>
+													</thead>
+													<tbody>
+                            							{% for t in test %}
+                            							<tr>
+                              								<td style="border: 2px dotted;">{{t.test_name}}</td>
+                              								<td style="border: 2px dotted;">{{t.result}}</td>
+															<td style="border: 2px dotted;">{{t.unit}}</td>
+                              								<td style="border: 2px dotted;">{{t.referred_value}}</td>
+														</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+                                
+								<!-- Қосымша ақпарат -->
+								<div class="other-info">
+									<h4><b>Қосымша ақпарат:</b></h4>
+									<p>{{report.other_information}}</p>
+
+                  					<button class="btn btn-sm bg-primary-light">
+                                        <a target="_blank" href="{% url 'pdf' pk=report.report_id %}">Есепті жүктеу</a>
+                                    </button>
+                  					{% endfor %}
+								</div>
+								<!-- /Қосымша ақпарат -->
+							  
+							</div>
+        
+						</div>
+					</div>
+
+				</div>
+			</div>		
+			<!-- /Бет мазмұны -->
+
+      		<!-- Футер -->
+      		{% include 'footer.html' %}
+      		<!-- /Футер -->
+      
+    	</div>
+    	<!-- /Негізгі қап -->
+
+    	<!-- jQuery -->
+    	<script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></script>
+
+    	<!-- Bootstrap Core JS -->
+    	<script src="{% static 'HealthStack-System/js/Normal/popper.min.js' %}"></script>
+    	<script src="{% static 'HealthStack-System/js/Normal/bootstrap.min.js' %}"></script>
+
+    	<!-- Sticky Sidebar JS -->
+    	<script src="{% static 'HealthStack-System/plugins/Normal/theia-sticky-sidebar/ResizeSensor.js' %}"></script>
+    	<script src="{% static 'HealthStack-System/plugins/Normal/theia-sticky-sidebar/theia-sticky-sidebar.js' %}"></script>
+
+    	<!-- Custom JS -->
+    	<script src="{% static 'HealthStack-System/Outside_assets/js/script.js' %}"></script>
+
+    	<!-- Searchbar JS -->
+    	<script src="{% static 'HealthStack-System/js/Normal/sidebar.js' %}"></script>
+  	</body>
+</html>

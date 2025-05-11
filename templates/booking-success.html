@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kk">
+  <!-- doccure/booking-success.html  30 Nov 2019 04:12:16 GMT -->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>HealthStack</title>
+
+    <!-- Favicons -->
+    <link
+      type="image/x-icon"
+      href="{% static 'HealthStack-System/images/Normal/favicon.png' %}"
+      rel="icon"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/bootstrap.min.css' %}"
+    />
+
+    <!-- Fontawesome CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/fontawesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/plugins/Normal/fontawesome/css/all.min.css' %}"
+    />
+
+    <!-- Main CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'HealthStack-System/css/Normal/style.css' %}"
+    />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.min.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <nav class="navbar navbar-expand-lg header-nav">
+          <div class="navbar-header">
+            <a id="mobile_btn" href="javascript:void(0);">
+              <span class="bar-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </a>
+            <a href="{% url 'hospital_home'%}" class="navbar-brand logo">
+              <img
+                src="{% static 'HealthStack-System/images/Normal/logo.jpg' %}"
+                class="img-fluid"
+                alt="Logo"
+              />
+            </a>
+          </div>
+          <div class="main-menu-wrapper">
+            <div class="menu-header">
+              <a href="{% url 'hospital_home'%}" class="menu-logo">
+                <img
+                  src="{% static 'HealthStack-System/images/Normal/logo.jpg' %}"
+                  class="img-fluid"
+                  alt="Logo"
+                />
+              </a>
+              <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                <i class="fas fa-times"></i>
+              </a>
+            </div>
+            <ul class="main-nav">
+              <li>
+                <a href="{% url 'hospital_home'%}">Басты бет</a>
+              </li>
+              <li class="has-submenu active">
+                <a href="#">Дәрігерлер <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                  <li><a href="#">Дәрігердің бақылау тақтасы</a></li>
+                  <li><a href="{% url 'appointments'%}">Кездесулер</a></li>
+                  <li>
+                    <a href="{% url 'schedule-timings'%}">Кесте уақыты</a>
+                  </li>
+                  <li><a href="{% url 'my-patients'%}">Пациенттер тізімі</a></li>
+                  <li><a href="#">Пациенттер профилі</a></li>
+                  <li>
+                    <a href="#">Профиль параметрлері</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-submenu">
+                <a href="#">Пациенттер <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                  <li><a href="{% url 'search'%}">Дәрігерді іздеу</a></li>
+                  <li>
+                    <a href="#">Дәрігер профилі</a>
+                  </li>
+                  <li><a href="{% url 'booking'%}">Тапсырыс жасау</a></li>
+                  <li>
+                    <a href="{% url 'booking-success'%}">Тапсырыс сәтті</a>
+                  </li>
+                  <li>
+                    <a href="#">Пациент бақылау тақтасы</a>
+                  </li>
+                  <li>
+                    <a href="#">Профиль параметрлері</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'change-password'%}">Құпиясөзді өзгерту</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="{% url 'about-us'%}">Біз туралы</a>
+              </li>
+              <li>
+                <a href="{% url 'admin_login' %}" target="_blank">Әкімші</a>
+              </li>
+              <li class="login-link">
+                <a href="{% url 'login' %}">Кіру / Тіркелу</a>
+              </li>
+            </ul>
+          </div>
+          <ul class="nav header-navbar-rht">
+            <li class="nav-item contact-item">
+              <div class="header-contact-img">
+                <i class="far fa-hospital"></i>
+              </div>
+              <div class="header-contact-detail">
+                <p class="contact-header">Байланыс</p>
+                <p class="contact-info-header">+880 1795087285</p>
+              </div>
+            </li>
+            <!-- User Menu -->
+            <li class="nav-item dropdown has-arrow logged-item">
+              <a
+                href="#"
+                class="dropdown-toggle nav-link"
+                data-toggle="dropdown"
+              >
+                <span class="user-img">
+                  <img
+                    class="rounded-circle"
+                    src="{% static 'HealthStack-System/images/Normal/patients/patient.jpg' %}"
+                    width="31"
+                    alt="Richard Wilson"
+                  />
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="user-header">
+                  <div class="avatar avatar-sm">
+                    <img
+                      src="{% static 'HealthStack-System/images/Normal/patients/patient.jpg' %}"
+                      alt="User Image"
+                      class="avatar-img rounded-circle"
+                    />
+                  </div>
+                  <div class="user-text">
+                    <h6>Richard Wilson</h6>
+                    <p class="text-muted mb-0">Пациент</p>
+                  </div>
+                </div>
+                <a class="dropdown-item" href="#">Бақылау тақтасы</a>
+                <a class="dropdown-item" href="#">Профиль параметрлері</a>
+                <a class="dropdown-item" href="{% url 'hospital_home'%}">Шығу</a>
+              </div>
+            </li>
+            <!-- /User Menu -->
+          </ul>
+        </nav>
+      </header>
+      <!-- /Header -->
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+              <nav aria-label="breadcrumb" class="page-breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="index-2.html">Басты бет</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Тапсырыс жасау
+                  </li>
+                </ol>
+              </nav>
+              <h2 class="breadcrumb-title">Тапсырыс жасау</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Breadcrumb -->
+
+      <!-- Page Content -->
+      <div class="content success-page-cont">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <!-- Success Card -->
+              <div class="card success-card">
+                <div class="card-body">
+                  <div class="success-cont">
+                    <i class="fas fa-check"></i>
+                    <h3>Кездесу сәтті брондалды!</h3>
+                    <p>
+                      Кездесу <strong>Dr. Darren Elder</strong> дәрігермен
+                      <br />
+                      <strong>12 қараша 2019 ж. 17:00 - 18:00</strong>
+                    </p>
+                    <a
+                      href="invoice-view.html"
+                      class="btn btn-primary view-inv-btn"
+                      >Шотты көру</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- /Success Card -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Page Content -->
+
+      <!-- Footer -->
+      {% include 'footer.html' %}
+      <!-- /Footer -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'HealthStack-System/js/Normal/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'HealthStack-System/js/Normal/popper.min.js' %}"></script>
+    <script src="{% static 'HealthStack-System/js/Normal/bootstrap.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'HealthStack-System/Outside_assets/js/script.js' %}"></script>
+  </body>
+
+  <!-- doccure/booking-success.html  30 Nov 2019 04:12:16 GMT -->
+</html>

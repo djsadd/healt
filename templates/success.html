@@ -1,0 +1,41 @@
+<h1>Төлем сәтті өтті</h1>
+
+<table>
+  <tr>
+    <td>Транзакция ID</td>
+    <td>Валидация ID</td>
+    <td>Сома</td>
+    <td>Карта түрі</td>
+    <td>Карта №</td>
+    <td>Банк транзакциясының ID</td>
+    <td>Статус</td>
+    <td>Транзакция күні</td>
+    <td>Валюта</td>
+    <td>Картаны шығарушы</td>
+    <td>Карта бренді</td>
+    <td>Картаны шығарған ел</td>
+    <td>Валюта түрі</td>
+    <td>Валюта сомасы</td>
+  </tr>
+
+  <tr>
+    <td>{{payment_data.tran_id}}</td>
+    <td>{{payment_data.val_id}}</td>
+    <td>{{payment_data.amount}}</td>
+    <td>{{payment_data.card_type}}</td>
+    <td>{{payment_data.card_no}}</td>
+    <td>{{payment_data.bank_tran_id}}</td>
+    <td>{{payment_data.status}}</td>
+    <td>{{payment_data.tran_date}}</td>
+    <td>{{payment_data.currency}}</td>
+    <td>{{payment_data.card_issuer}}</td>
+    <td>{{payment_data.card_brand}}</td>
+    <td>{{payment_data.card_issuer_country}}</td>
+    <td>{{payment_data.currency_type}}</td>
+    <td>{{payment_data.currency_amount}}</td>
+  </tr>
+</table>
+
+<br>
+<hr>
+{{ response }}

@@ -1,0 +1,71 @@
+{% load static %}
+
+<h2>Сәлеметсіз бе, {{ values.name }},</h2>
+
+<p>Сізге хабарлай отырып, Доктор {{ values.doctor_name }} тағайындауыңыз қабылданғанын қуанышпен хабарлаймыз.</p>
+
+<p>Тағайындауға қатысты мәліметтер төменде келтірілген:</p>
+
+<h3 class="card-title">Тағайындау мәліметтері</h3>
+
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black">Атауы</th>
+                <th style="border: 1px solid black">Мәліметтер</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td style="border: 1px solid black">Пациенттің аты-жөні</td>
+                <td style="border: 1px solid black">{{ values.name }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Электрондық пошта</td>
+                <td style="border: 1px solid black">{{ values.email }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Пайдаланушы аты</td>
+                <td style="border: 1px solid black">{{ values.username }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Пациенттің сериялық нөмірі</td>
+                <td style="border: 1px solid black">{{ values.serial_number }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Доктордың аты-жөні</td>
+                <td style="border: 1px solid black">{{ values.doctor_name }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Тағайындау сериялық нөмірі</td>
+                <td style="border: 1px solid black">{{ values.appointment_serial_num }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Тағайындау күні</td>
+                <td style="border: 1px solid black">{{ values.appointment_date }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Тағайындау уақыты</td>
+                <td style="border: 1px solid black">{{ values.appointment_time }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Тағайындау мәртебесі</td>
+                <td style="border: 1px solid black">{{ values.appointment_status }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+<p>Кез келген сұрақтар бойынша бізге хабарласуға болады.</p>
+
+<p>Құрметпен,</p>
+<p>Әкімшілік</p>

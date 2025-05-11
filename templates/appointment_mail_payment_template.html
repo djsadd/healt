@@ -1,0 +1,79 @@
+{% load static %}
+
+<h2>Сәлеметсіз бе, {{ values.name }},</h2>
+
+<p>Бұл жерде Доктор {{ values.doctor_name }} тағайындауыңыз үшін төлем мәліметтерін қамтитын түбіртек бар.</p>
+
+<h3 class="card-title">Тағайындау төлем түбіртегі</h3>
+
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black">Атауы</th>
+                <th style="border: 1px solid black">Мәліметтер</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td style="border: 1px solid black">Пациенттің аты-жөні</td>
+                <td style="border: 1px solid black">{{ values.name }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Электрондық пошта</td>
+                <td style="border: 1px solid black">{{ values.email }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Пайдаланушы аты</td>
+                <td style="border: 1px solid black">{{ values.username }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Телефон нөмірі</td>
+                <td style="border: 1px solid black">{{ values.phone_number }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Доктордың аты-жөні</td>
+                <td style="border: 1px solid black">{{ values.doctor_name }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Транзакцияның ID нөмірі</td>
+                <td style="border: 1px solid black">{{ values.tran_id }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Банк транзакциясының ID нөмірі</td>
+                <td style="border: 1px solid black">{{ values.bank_transaction_id }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Транзакция күні</td>
+                <td style="border: 1px solid black">{{ values.transaction_date }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Сомасы</td>
+                <td style="border: 1px solid black">{{ values.currency_amount }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Карточка түрі</td>
+                <td style="border: 1px solid black">{{ values.card_type }}</td>
+            </tr>
+
+            <tr>
+                <td style="border: 1px solid black">Карточка эмитенті</td>
+                <td style="border: 1px solid black">{{ values.card_issuer }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+<p>Кез келген сұрақтар бойынша бізге хабарласуға болады.</p>
+
+<p>Құрметпен,</p>
+<p>Әкімшілік</p>

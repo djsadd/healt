@@ -1,0 +1,14 @@
+{% load static %}
+
+<h2>Сәлеметсіз бе,</h2>
+
+<p>Бұл электрондық пошта мекенжайы үшін құпия сөзді қалпына келтіру сұранысы түсті. Құпия сөзді қалпына келтіру процесін бастау үшін төмендегі сілтемені басыңыз.</p>
+
+<p><a href="{{ values.protocol }}://{{ values.domain }}{% url 'password_reset_confirm' uidb64=values.uid token=values.token %}" target="_blank">{{ values.protocol }}://{{ values.domain }}{% url 'password_reset_confirm' uidb64=values.uid token=values.token %}</a></p>
+
+<p>Бұл сілтеме тек бір рет пайдалануға жарамды. Егер құпия сөзді қайтадан қалпына келтіру қажет болса, <a href="{{ values.protocol }}://{{values.domain}}" target="_blank">{{ values.protocol }}://{{values.domain}}</a> сайтына барып, жаңа қалпына келтіру сұрауын жіберіңіз.</p>
+
+<p>Егер сіз бұл сұранысты жасаған жоқ болсаңыз, онда осы хатты елемей өтуге болады.</p>
+
+<p>Құрметпен,</p>
+<p>Жаввад</p>
